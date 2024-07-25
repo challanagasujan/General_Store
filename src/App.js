@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Inventory from './components/Inventory';
+import Customers from './components/Customers';
+import './App.css'; // Ensure to import the CSS file
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        <nav className="nav-buttons">
+          <button className="nav-button">
+            <Link to="/inventory" className="nav-link">Inventory</Link>
+          </button>
+          <button className="nav-button">
+            <Link to="/customers" className="nav-link">Customers</Link>
+          </button>
+        </nav>
+        <Routes>
+          <Route path="/inventory" element={<Inventory/>} />
+          <Route path="/customers" element={<Customers/>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

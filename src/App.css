@@ -1,38 +1,172 @@
-.App {
-  text-align: center;
+/* src/App.css */
+body, html {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  text-align: center;
+  padding-top: 60px; /* Adjusted to make room for the fixed navbar */
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 20px;
+  position: fixed;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; 
+  /* border-bottom: 1px solid #ddd; */
+  padding: 10px 0;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  z-index: 1000; /* Ensures it stays above other content */
+}
+
+.nav-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
   color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 3D effect */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
-.App-link {
-  color: #61dafb;
+.nav-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-link {
+  text-decoration: none; /* Remove underline */
+  color: white; /* Change text color to white */
+}
+
+.search-bar {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 300px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.add-customer {
+  margin-bottom: 20px;
+}
+
+.add-customer input {
+  padding: 10px;
+  margin-right: 10px;
+  width: 200px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.add-customer button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  border-radius: 5px;
+}
+
+.add-customer button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+
+  .nav-button {
+    width: 80%;
+    margin: 15px;
+    
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.customer-list, .inventory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 90%;
+  margin: 10px;
+  justify-content: center;
+}
+
+.customer-item, .inventory-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  /* width: 90%; */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.customer-item span, .inventory-item span {
+  flex-grow: 1;
+}
+
+.purchase-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.purchase-item, .inventory-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.purchase-item span, .inventory-item span {
+  flex-grow: 1;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
 }
